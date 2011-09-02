@@ -1,0 +1,45 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='http://code.jquery.com/jquery-1.6.1.min.js')
+    script(src='/socket.io/socket.io.js')
+    script
+      var socket = io.connect();
+
+      socket.on('connect', function () {
+        $('#irc').addClass('connected');
+        socket.emit('reqPrevMessages', "#coding");
+      });
+
+      socket.on('resPrevMessages', function(messages) {
+        if (messages != null) {
+          messages.forEach(function(message) {
+            split = message.split(" ");
+            user = split.shift();
+            msg = split.join(" ");
+            $('#messages').append($('<p>').append($('<b>').text(user), " "+msg));
+          });
+        }
+      });
+
+      socket.on('announcement', function (msg) {
+        $('#messages').append($('<p>').append($('<em>').text(msg)));
+        $('#messages').get(0).scrollTop = 10000000;
+      });
+
+      socket.on('irc message', function (user, msg) {
+        $('#messages').append($('<p>').append($('<b>').text(user), " "+msg));
+        $('#messages').get(0).scrollTop = 10000000;
+      });
+      $("document").ready(function() {
+        $('#message-form').submit(function() {
+           var msg = $("#message-field").val();
+           socket.emit('send message', { message: msg}); 
+           $("#message-field").val("");
+           return false;
+        });
+      });
+
+  body!= body

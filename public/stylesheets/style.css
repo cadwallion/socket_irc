@@ -1,0 +1,83 @@
+h2 {
+  font: bold 18px Helvetica Neue, Arial;
+}
+#irc,
+#messages {
+  width: 600px;
+}
+#irc {
+  position: relative;
+  border: 1px solid #ccc;
+}
+#connecting {
+  position: absolute;
+  height: 410px;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  background: #fff;
+  text-align: center;
+  width: 600px;
+  font: 15px Georgia;
+  color: #666;
+  display: block;
+}
+#connecting .wrap {
+  padding-top: 150px;
+}
+.connected #connecting {
+  display: none;
+}
+#messages {
+  height: 380px;
+  background: #eee;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+#messages::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+#messages::-webkit-scrollbar-button:start:decrement,
+#messages ::-webkit-scrollbar-button:end:increment {
+  display: block;
+  height: 10px;
+}
+#messages::-webkit-scrollbar-button:vertical:increment {
+  background-color: #fff;
+}
+#messages::-webkit-scrollbar-track-piece {
+  background-color: #fff;
+  -webkit-border-radius: 3px;
+}
+#messages::-webkit-scrollbar-thumb:vertical {
+  height: 50px;
+  background-color: #ccc;
+  -webkit-border-radius: 3px;
+}
+#messages::-webkit-scrollbar-thumb:horizontal {
+  width: 50px;
+  background-color: #fff;
+  -webkit-border-radius: 3px;
+}
+#messages em {
+  text-shadow: 0 1px 0 #fff;
+  color: #999;
+}
+#messages p {
+  padding: 0;
+  margin: 0;
+  font: 12px Helvetica, Arial;
+  padding: 5px 10px;
+}
+#messages p b {
+  display: inline-block;
+  padding-right: 10px;
+}
+#messages p:nth-child(even) {
+  background: #fafafa;
+}
+#message-field {
+  width: 400px;
+}

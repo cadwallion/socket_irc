@@ -1,0 +1,12 @@
+{
+    "name": "socket-irc"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+      "express": "2.4.6"
+    , "socket.io": "0.8.2"
+    , "jade": "0.12.1"
+    , "stylus": "0.13.3"
+    , "nib": "0.0.8"
+  }
+}
