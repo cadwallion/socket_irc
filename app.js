@@ -54,7 +54,7 @@ console.log("Express server listening on port %d in %s mode", app.address().port
  * Socket.IO server
  */
 
-var io = sio.listen(app),
+var io = sio.listen(8001),
     redis = require('redis').createClient();
 
 /**
